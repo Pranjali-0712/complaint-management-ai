@@ -171,17 +171,24 @@ The frontend communicates with the deployed backend through REST API endpoints.
 
 ---
 
-## 🌐 Deployment
+
+
+## 🚀 Deployment
 
 The application is deployed using separate frontend and backend services.
 
-### Frontend
+### 🌐 Frontend — Vercel
 
-**Vercel**
+**Live Demo:** [Open Pharma Complaint Copilot](YOUR_VERCEL_URL_HERE)
 
-### Backend
+### ⚙️ Backend — Render
 
-**Render**
+**Backend API:** [Open Complaint Management API](https://complaint-management-ai.onrender.com)
+
+### 🔗 GitHub Repository
+
+[View Source Code](https://github.com/Pranjali-0712/complaint-management-ai)
+
 
 The production frontend communicates with the deployed FastAPI backend.
 
