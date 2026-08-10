@@ -1,118 +1,103 @@
 # 💊 Pharma Complaint Copilot
 
-An AI-powered pharmaceutical complaint management system that helps users capture, analyze, assess, store, and manage customer complaints through an intuitive web interface.
+**Pharma Complaint Copilot** is a full-stack AI-powered pharmaceutical complaint management application designed to simplify complaint intake, analysis, risk assessment, storage, and reporting.
 
-## 🚀 Live Demo
+## 🚀 Project Overview
 
-**Frontend:**
-https://complaint-management-ai.vercel.app
+The application allows users to enter pharmaceutical complaints manually or through an AI Copilot. Complaint information can be analyzed, assessed for risk, stored, searched, edited, deleted, and converted into PDF reports.
 
-**Backend API:**
-https://complaint-management-ai.onrender.com
+The project consists of:
 
-> The backend API is deployed separately on Render and the frontend is deployed on Vercel.
-
----
-
-## 📌 Overview
-
-Pharma Complaint Copilot is a full-stack web application designed to simplify pharmaceutical complaint intake and case management.
-
-The application allows users to:
-
-* Enter pharmaceutical complaint information
-* Use an AI Copilot to extract complaint details
-* Automatically assess complaint risk
-* Save and update complaints
-* Search complaint history
-* Delete complaints
-* Upload complaint PDFs
-* Generate complaint reports as PDFs
-* View complaint analytics
-* Monitor complaints by risk level and country
+* React frontend
+* FastAPI backend
+* REST API communication
+* AI-assisted complaint processing
+* Complaint management
+* Risk assessment
+* Dashboard analytics
+* PDF upload and generation
+* Cloud deployment
 
 ---
 
-## ✨ Key Features
+## ✨ Features
 
 ### 🤖 AI Complaint Copilot
 
-Users can describe a complaint in natural language, and the system extracts relevant complaint information and updates the complaint form.
+Users can describe a complaint in natural language. The AI Copilot processes the information and updates the complaint form.
 
 ### 🛡️ Risk Assessment
 
-Complaints are categorized into:
+The application provides risk assessment based on complaint information:
 
-* 🔴 High Risk
-* 🟠 Medium Risk
-* 🟢 Low Risk
+* 🔴 High
+* 🟠 Medium
+* 🟢 Low
 
-The system also generates a summary and risk reason based on the complaint information.
+It also generates:
+
+* Complaint summary
+* Risk level
+* Risk reason
 
 ### 📋 Complaint Management
 
 Users can:
 
 * Create complaints
+* Save complaints
 * Edit complaints
 * Delete complaints
-* Search complaints
-* View complaint history
+* Search complaint history
+* View submitted complaints
 
-### 📄 PDF Processing
+### 📄 PDF Features
 
 The application supports:
 
-* PDF complaint uploads
-* Automatic complaint information extraction
-* PDF report generation
+* PDF complaint upload
+* Complaint information extraction
+* Complaint report generation
+* PDF download
 
-### 📊 Dashboard & Analytics
+### 📊 Dashboard
 
-The dashboard provides:
+The dashboard displays:
 
 * Total complaints
 * High-risk complaints
 * Medium-risk complaints
 * Low-risk complaints
-* Risk distribution charts
+* Risk distribution
 * Complaints by country
 
 ---
 
-## 🏗️ System Architecture
+## 🏗️ Application Architecture
 
 ```text
-                    ┌─────────────────────┐
-                    │      User           │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │ React Frontend      │
-                    │       Vercel        │
-                    └──────────┬──────────┘
-                               │
-                         REST API Calls
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │ Backend API         │
-                    │      Render         │
-                    └──────────┬──────────┘
-                               │
-                ┌──────────────┼──────────────┐
-                ▼              ▼              ▼
-          Complaint API    AI Processing    PDF Processing
-                │              │              │
-                └──────────────┼──────────────┘
-                               ▼
-                    Complaint Management
+User
+ │
+ ▼
+React + Vite Frontend
+ │
+ │ REST API
+ ▼
+FastAPI Backend
+ │
+ ├── Complaint Management
+ ├── AI Processing
+ ├── Risk Assessment
+ ├── PDF Processing
+ └── Dashboard Analytics
+ │
+ ▼
+Complaint Data
 ```
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Technology Stack
 
 ### Frontend
 
@@ -131,11 +116,13 @@ The dashboard provides:
 * ReportLab
 * PDF processing
 
-### Deployment
+### Development & Deployment
 
-* Vercel — Frontend
-* Render — Backend
-* GitHub — Source Code
+* Git
+* GitHub
+* Vercel
+* Render
+* VS Code
 
 ---
 
@@ -166,23 +153,41 @@ complaint-management-ai/
 
 ---
 
-## 🔌 API Endpoints
+## 🔌 Backend API
 
-| Method | Endpoint          | Purpose                      |
-| ------ | ----------------- | ---------------------------- |
-| GET    | `/complaints`     | Get complaint history        |
-| GET    | `/dashboard`      | Get dashboard statistics     |
-| POST   | `/chat`           | Process AI complaint input   |
-| POST   | `/update`         | Update complaint fields      |
-| POST   | `/submit`         | Save a complaint             |
-| PUT    | `/complaint/{id}` | Update an existing complaint |
-| DELETE | `/complaint/{id}` | Delete a complaint           |
-| POST   | `/upload`         | Upload and process a PDF     |
-| POST   | `/generate-pdf`   | Generate a complaint report  |
+The frontend communicates with the deployed backend through REST API endpoints.
+
+| Method | Endpoint          | Purpose                       |
+| ------ | ----------------- | ----------------------------- |
+| GET    | `/complaints`     | Retrieve complaint history    |
+| GET    | `/dashboard`      | Retrieve dashboard statistics |
+| POST   | `/chat`           | Process AI complaint input    |
+| POST   | `/update`         | Update complaint fields       |
+| POST   | `/submit`         | Save a new complaint          |
+| PUT    | `/complaint/{id}` | Update an existing complaint  |
+| DELETE | `/complaint/{id}` | Delete a complaint            |
+| POST   | `/upload`         | Upload and process a PDF      |
+| POST   | `/generate-pdf`   | Generate a complaint PDF      |
 
 ---
 
-## ⚙️ Local Setup
+## 🌐 Deployment
+
+The application is deployed using separate frontend and backend services.
+
+### Frontend
+
+**Vercel**
+
+### Backend
+
+**Render**
+
+The production frontend communicates with the deployed FastAPI backend.
+
+---
+
+## ⚙️ Local Installation
 
 ### 1. Clone the repository
 
@@ -191,19 +196,19 @@ git clone https://github.com/Pranjali-0712/complaint-management-ai.git
 cd complaint-management-ai
 ```
 
-### 2. Run the backend
+### 2. Setup Backend
 
 ```bash
 cd backend
 ```
 
-Create and activate a virtual environment:
+Create a virtual environment:
 
 ```bash
 python -m venv .venv
 ```
 
-Windows:
+Activate it on Windows:
 
 ```bash
 .venv\Scripts\activate
@@ -221,17 +226,27 @@ Start the backend:
 uvicorn main:app --reload
 ```
 
-### 3. Run the frontend
+### 3. Setup Frontend
 
 Open another terminal:
 
 ```bash
 cd frontend
+```
+
+Install dependencies:
+
+```bash
 npm install
+```
+
+Start the development server:
+
+```bash
 npm run dev
 ```
 
-The frontend will normally be available at:
+The frontend will normally run on:
 
 ```text
 http://localhost:5173
@@ -239,92 +254,73 @@ http://localhost:5173
 
 ---
 
-## 🌐 Deployment
+## 🔗 Production API Configuration
 
-The application is deployed using:
-
-**Frontend**
-
-Vercel
-
-**Backend**
-
-Render
-
-The production frontend communicates with the deployed backend through:
-
-```text
-https://complaint-management-ai.onrender.com
-```
-
----
-
-## 🔐 Important Configuration
-
-For local development, the frontend API URL can be configured in:
-
-```text
-frontend/src/App.jsx
-```
-
-Production backend:
+The production frontend uses the deployed backend API:
 
 ```javascript
 const API_URL = "https://complaint-management-ai.onrender.com";
 ```
 
-For a production-grade application, environment variables should be preferred for API configuration.
-
 ---
 
 ## 📸 Screenshots
 
-Add screenshots of:
-
-1. Dashboard
-2. New Complaint page
-3. AI Copilot
-4. Complaint History
-5. Analytics
-6. Generated PDF
-
-Example:
-
-```markdown
-## 📸 Screenshots
+Add screenshots of the following sections:
 
 ### Dashboard
+
 ![Dashboard](screenshots/dashboard.png)
 
-### AI Complaint Copilot
+### New Complaint
+
+![New Complaint](screenshots/new-complaint.png)
+
+### AI Copilot
+
 ![AI Copilot](screenshots/ai-copilot.png)
 
 ### Complaint History
+
 ![Complaint History](screenshots/complaint-history.png)
 
 ### Analytics
+
 ![Analytics](screenshots/analytics.png)
-```
 
 ---
 
-## 🎯 Use Case
+## 🎯 Key Learning Outcomes
 
-The system can be used as a prototype for pharmaceutical complaint intake and case management, helping organizations organize complaint information, prioritize risks, and maintain complaint records.
+This project demonstrates practical experience with:
+
+* Full-stack web development
+* React application development
+* REST API integration
+* FastAPI backend development
+* Redux state management
+* AI-assisted data processing
+* CRUD operations
+* PDF processing
+* Data visualization
+* Git and GitHub
+* Cloud deployment
+* Frontend-backend integration
 
 ---
 
 ## 🔮 Future Enhancements
 
-* User authentication and role-based access
-* PostgreSQL/MySQL production database
-* Advanced AI-based risk classification
-* Multi-language complaint processing
-* Email notifications for high-risk complaints
+* User authentication
+* Role-based access control
+* PostgreSQL/MySQL database
+* Advanced AI risk classification
+* Email notifications
 * Complaint status workflow
 * Audit logs
+* Multi-language support
 * Advanced analytics
-* Cloud-based document storage
+* Cloud document storage
 
 ---
 
@@ -334,19 +330,10 @@ The system can be used as a prototype for pharmaceutical complaint intake and ca
 
 Computer Science & Engineering
 
-GitHub:
-https://github.com/Pranjali-0712
+GitHub: **Pranjali-0712**
 
 ---
 
 ## ⭐ Project Highlights
 
-* Full-stack web application
-* AI-assisted complaint processing
-* REST API integration
-* PDF upload and generation
-* Risk assessment
-* Dashboard analytics
-* CRUD complaint management
-* Cloud deployment
-* Responsive web interface
+**Pharma Complaint Copilot** combines AI-assisted complaint processing, risk assessment, complaint management, analytics, and PDF reporting into a single full-stack application.
