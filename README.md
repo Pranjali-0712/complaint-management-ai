@@ -1,153 +1,188 @@
-# AI Customer Complaint Management System
+# 💊 Pharma Complaint Copilot
 
-An AI-powered customer complaint management system that combines a **FastAPI backend, LangGraph-based AI workflow, and React frontend** to process, validate, summarize, and manage customer complaints.
+An AI-powered pharmaceutical complaint management system that helps users capture, analyze, assess, store, and manage customer complaints through an intuitive web interface.
 
-## 🚀 Overview
+## 🚀 Live Demo
 
-The AI Customer Complaint Management System is designed to streamline the complaint-handling process.
+**Frontend:**
+https://complaint-management-ai.vercel.app
 
-Instead of manually processing every complaint, the system uses an AI workflow to:
+**Backend API:**
+https://complaint-management-ai.onrender.com
 
-* Extract important complaint information
-* Validate the extracted information
-* Generate a concise complaint summary
-* Assess complaint risk
-* Generate a complaint report
-* Provide an interactive frontend for users
+> The backend API is deployed separately on Render and the frontend is deployed on Vercel.
+
+---
+
+## 📌 Overview
+
+Pharma Complaint Copilot is a full-stack web application designed to simplify pharmaceutical complaint intake and case management.
+
+The application allows users to:
+
+* Enter pharmaceutical complaint information
+* Use an AI Copilot to extract complaint details
+* Automatically assess complaint risk
+* Save and update complaints
+* Search complaint history
+* Delete complaints
+* Upload complaint PDFs
+* Generate complaint reports as PDFs
+* View complaint analytics
+* Monitor complaints by risk level and country
+
+---
 
 ## ✨ Key Features
 
-### 🤖 AI Complaint Processing
+### 🤖 AI Complaint Copilot
 
-Uses a LangGraph workflow to organize the complaint-processing pipeline into multiple stages.
+Users can describe a complaint in natural language, and the system extracts relevant complaint information and updates the complaint form.
 
-### 📝 Complaint Information Extraction
+### 🛡️ Risk Assessment
 
-Extracts relevant information such as:
+Complaints are categorized into:
 
-* Complaint number
-* Complaint date
-* Customer information
-* Complaint details
-* Other required complaint fields
+* 🔴 High Risk
+* 🟠 Medium Risk
+* 🟢 Low Risk
 
-### ✅ Validation
+The system also generates a summary and risk reason based on the complaint information.
 
-Validates the extracted complaint information before producing the final result.
+### 📋 Complaint Management
 
-### 📋 Complaint Summarization
+Users can:
 
-Converts complaint information into a concise summary that can be easily reviewed.
+* Create complaints
+* Edit complaints
+* Delete complaints
+* Search complaints
+* View complaint history
 
-### ⚠️ Risk Assessment
+### 📄 PDF Processing
 
-Analyzes complaint information and produces a risk assessment to help prioritize complaints.
+The application supports:
 
-### 📄 PDF Report Generation
+* PDF complaint uploads
+* Automatic complaint information extraction
+* PDF report generation
 
-Generates a complaint report in PDF format.
+### 📊 Dashboard & Analytics
 
-### 💬 AI Assistant
+The dashboard provides:
 
-Provides an interactive AI assistant interface through the React frontend.
+* Total complaints
+* High-risk complaints
+* Medium-risk complaints
+* Low-risk complaints
+* Risk distribution charts
+* Complaints by country
 
-### 📊 Dashboard & History
+---
 
-The frontend includes pages for:
-
-* Dashboard
-* Complaint submission
-* AI Assistant
-* Analytics
-* Complaint History
-
-## 🧠 AI Workflow
-
-The backend uses **LangGraph** to structure the complaint-processing workflow.
+## 🏗️ System Architecture
 
 ```text
-User Complaint
-      ↓
-Information Extraction
-      ↓
-Validation
-      ↓
-Complaint Summary
-      ↓
-Risk Assessment
-      ↓
-Final Result
-      ↓
-PDF Report
+                    ┌─────────────────────┐
+                    │      User           │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │ React Frontend      │
+                    │       Vercel        │
+                    └──────────┬──────────┘
+                               │
+                         REST API Calls
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │ Backend API         │
+                    │      Render         │
+                    └──────────┬──────────┘
+                               │
+                ┌──────────────┼──────────────┐
+                ▼              ▼              ▼
+          Complaint API    AI Processing    PDF Processing
+                │              │              │
+                └──────────────┼──────────────┘
+                               ▼
+                    Complaint Management
 ```
 
-This workflow makes the processing pipeline modular and easier to extend.
+---
 
 ## 🛠️ Tech Stack
-
-### Backend
-
-* Python
-* FastAPI
-* LangGraph
-* Pydantic
-* SQLite / Database integration
-* PDF generation
 
 ### Frontend
 
 * React
 * Vite
-* JavaScript
+* React Router
 * Redux Toolkit
+* Recharts
 * CSS
 
-### Development Tools
+### Backend
 
-* Git
-* GitHub
-* VS Code
-* Python Virtual Environment
-* npm
+* Python
+* FastAPI
+* REST API
+* ReportLab
+* PDF processing
 
-## 📁 Project Structure
+### Deployment
+
+* Vercel — Frontend
+* Render — Backend
+* GitHub — Source Code
+
+---
+
+## 📂 Project Structure
 
 ```text
 complaint-management-ai/
 │
-├── backend/
-│   ├── app/
-│   │   ├── __init__.py
-│   │   ├── database.py
-│   │   ├── graph.py
-│   │   ├── main.py
-│   │   ├── models.py
-│   │   └── pdf_generator.py
-│   │
-│   ├── requirements.txt
-│   ├── test_graph.py
-│   └── complaint_report.pdf
-│
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
+│   │   │   └── Sidebar.jsx
 │   │   ├── features/
-│   │   ├── pages/
+│   │   │   ├── chatSlice.js
+│   │   │   └── formSlice.js
 │   │   ├── App.jsx
-│   │   ├── main.jsx
-│   │   ├── store.js
-│   │   └── styles.css
-│   │
+│   │   └── ...
 │   ├── package.json
-│   ├── package-lock.json
-│   ├── index.html
-│   └── vite.config.js
+│   └── ...
 │
-├── .gitignore
+├── backend/
+│   ├── main.py
+│   ├── requirements.txt
+│   └── ...
+│
 └── README.md
 ```
 
-## ⚙️ Installation & Setup
+---
+
+## 🔌 API Endpoints
+
+| Method | Endpoint          | Purpose                      |
+| ------ | ----------------- | ---------------------------- |
+| GET    | `/complaints`     | Get complaint history        |
+| GET    | `/dashboard`      | Get dashboard statistics     |
+| POST   | `/chat`           | Process AI complaint input   |
+| POST   | `/update`         | Update complaint fields      |
+| POST   | `/submit`         | Save a complaint             |
+| PUT    | `/complaint/{id}` | Update an existing complaint |
+| DELETE | `/complaint/{id}` | Delete a complaint           |
+| POST   | `/upload`         | Upload and process a PDF     |
+| POST   | `/generate-pdf`   | Generate a complaint report  |
+
+---
+
+## ⚙️ Local Setup
 
 ### 1. Clone the repository
 
@@ -156,55 +191,37 @@ git clone https://github.com/Pranjali-0712/complaint-management-ai.git
 cd complaint-management-ai
 ```
 
-### 2. Backend Setup
-
-Create and activate a Python virtual environment.
-
-#### Windows
-
-```bash
-python -m venv .venv
-.venv\Scripts\activate
-```
-
-Install the backend dependencies:
+### 2. Run the backend
 
 ```bash
 cd backend
+```
+
+Create and activate a virtual environment:
+
+```bash
+python -m venv .venv
+```
+
+Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
 ```
 
-### 3. Environment Variables
-
-Create a `.env` file inside the `backend` directory.
-
-Add the required API keys and configuration values used by the application.
-
-**Do not commit `.env` to GitHub.**
-
-The repository already includes `.gitignore` to prevent sensitive environment variables from being uploaded.
-
-### 4. Start the Backend
-
-From the `backend` directory:
+Start the backend:
 
 ```bash
-uvicorn app.main:app --reload
+uvicorn main:app --reload
 ```
 
-The FastAPI server will normally be available at:
-
-```text
-http://127.0.0.1:8000
-```
-
-FastAPI documentation:
-
-```text
-http://127.0.0.1:8000/docs
-```
-
-### 5. Start the Frontend
+### 3. Run the frontend
 
 Open another terminal:
 
@@ -214,56 +231,104 @@ npm install
 npm run dev
 ```
 
-Vite will provide a local development URL, normally:
+The frontend will normally be available at:
 
 ```text
 http://localhost:5173
 ```
 
-## 🧪 Testing
+---
 
-Backend tests can be executed using:
+## 🌐 Deployment
 
-```bash
-cd backend
-pytest
-```
+The application is deployed using:
 
-The project includes:
+**Frontend**
+
+Vercel
+
+**Backend**
+
+Render
+
+The production frontend communicates with the deployed backend through:
 
 ```text
-backend/test_graph.py
+https://complaint-management-ai.onrender.com
 ```
 
-for testing the complaint-processing workflow.
+---
 
-## 🔐 Security
+## 🔐 Important Configuration
 
-Sensitive configuration files such as `.env` are excluded from Git using `.gitignore`.
+For local development, the frontend API URL can be configured in:
 
-Never upload:
+```text
+frontend/src/App.jsx
+```
 
-* API keys
-* Passwords
-* Authentication tokens
-* Private credentials
-* Local virtual environments
+Production backend:
+
+```javascript
+const API_URL = "https://complaint-management-ai.onrender.com";
+```
+
+For a production-grade application, environment variables should be preferred for API configuration.
+
+---
+
+## 📸 Screenshots
+
+Add screenshots of:
+
+1. Dashboard
+2. New Complaint page
+3. AI Copilot
+4. Complaint History
+5. Analytics
+6. Generated PDF
+
+Example:
+
+```markdown
+## 📸 Screenshots
+
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### AI Complaint Copilot
+![AI Copilot](screenshots/ai-copilot.png)
+
+### Complaint History
+![Complaint History](screenshots/complaint-history.png)
+
+### Analytics
+![Analytics](screenshots/analytics.png)
+```
+
+---
+
+## 🎯 Use Case
+
+The system can be used as a prototype for pharmaceutical complaint intake and case management, helping organizations organize complaint information, prioritize risks, and maintain complaint records.
+
+---
 
 ## 🔮 Future Enhancements
 
-Possible future improvements include:
-
 * User authentication and role-based access
-* Email notifications for high-risk complaints
-* Advanced analytics and visualizations
+* PostgreSQL/MySQL production database
+* Advanced AI-based risk classification
 * Multi-language complaint processing
-* Voice-based complaint submission
-* Complaint priority prediction
-* Cloud deployment
-* Automated customer response generation
-* Admin management panel
+* Email notifications for high-risk complaints
+* Complaint status workflow
+* Audit logs
+* Advanced analytics
+* Cloud-based document storage
 
-## 👩‍💻 Author
+---
+
+## 👩‍💻 Developer
 
 **Pranjali Tiwari**
 
@@ -272,17 +337,16 @@ Computer Science & Engineering
 GitHub:
 https://github.com/Pranjali-0712
 
-## ⭐ Project Purpose
+---
 
-This project demonstrates the practical application of:
+## ⭐ Project Highlights
 
-* Generative AI
-* LangGraph
-* FastAPI
-* React
-* Workflow orchestration
-* Database management
-* PDF report generation
-* Full-stack application development
-
-It was developed as a practical AI/full-stack project to automate and improve the customer complaint management process.
+* Full-stack web application
+* AI-assisted complaint processing
+* REST API integration
+* PDF upload and generation
+* Risk assessment
+* Dashboard analytics
+* CRUD complaint management
+* Cloud deployment
+* Responsive web interface
