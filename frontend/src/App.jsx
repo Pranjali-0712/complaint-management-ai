@@ -32,7 +32,6 @@ import {
 // =====================================================
 // BACKEND URL
 // =====================================================
-
 const API_URL = "https://complaint-management-ai.onrender.com";
 
 
