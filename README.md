@@ -179,11 +179,11 @@ The application is deployed using separate frontend and backend services.
 
 ### 🌐 Frontend — Vercel
 
-**Live Demo:** [Open Pharma Complaint Copilot](YOUR_VERCEL_URL_HERE)
+**Live Demo:**  https://complaint-management-ai.vercel.app/
 
 ### ⚙️ Backend — Render
 
-**Backend API:** [Open Complaint Management API](https://complaint-management-ai.onrender.com)
+**Backend API:** https://complaint-management-ai.onrender.com
 
 ### 🔗 GitHub Repository
 
